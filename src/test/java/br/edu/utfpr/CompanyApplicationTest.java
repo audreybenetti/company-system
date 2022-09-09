@@ -1,20 +1,11 @@
 package br.edu.utfpr;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import org.junit.Test;
-
-/**
- * Unit test for simple App.
- */
+@SpringBootTest
 public class CompanyApplicationTest
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+    void contextLoads(){}
 }
