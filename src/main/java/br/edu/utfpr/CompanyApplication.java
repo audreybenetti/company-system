@@ -11,6 +11,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
+
 @SpringBootApplication
 public class CompanyApplication {
     private static final Logger log = LoggerFactory.getLogger(CompanyApplication.class);
@@ -56,10 +60,11 @@ public class CompanyApplication {
 
             log.info("Número de funcionários cadastrados: " + funcionarioService.countFuncionarios());
 
+            log.info("Listar todos os cargos com seus respectivos funcionários: ");
+            cargoService.getCargosAndFuncionarios().stream()
+                    .map(Map::entrySet)
+                    .forEach(c -> log.info(String.valueOf(c)));
 
-//            for (Map.Entry<Cargo, String> entry : map.entrySet()) {
-//                System.out.println("Cargo: " + entry.getKey().getCargo() + " Funcionários : " + entry.getValue());
-//            }
         };
     }
 }

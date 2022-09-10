@@ -1,7 +1,6 @@
 package br.edu.utfpr.service;
 
 import br.edu.utfpr.entity.Cargo;
-import br.edu.utfpr.entity.Funcionario;
 import br.edu.utfpr.repository.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +18,10 @@ public class CargoService {
         repository.save(cargo);
     }
 
-//    public Map<Cargo, String> find(){
-//        return repository.findAllWithFuncionarios();
-//    }
+    //Chamada da Query em FuncionarioService:
+    public List<Map<Cargo,String>> getCargosAndFuncionarios(){
+        return repository.getCargosAndFuncionarios();
+    }
 
     public void deleteById(Long id){
         if (repository.existsById(id)){
